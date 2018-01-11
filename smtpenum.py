@@ -1,14 +1,15 @@
 #!/usr/bin/python
 import socket
 import sys
-if len(sys.argv) != 4:
-	print "Usage: vrfy.py <username> <server> <port>"
+if len(sys.argv) != 2:
+	print "Usage: vrfy.py <username>"
 	sys.exit(0)
+
 
 # Create a Socket
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Connect to the Server
-connect=s.connect((sys.argv[2],sys.argv[3]))
+connect=s.connect(('10.11.1.22',25))
 # Receive the banner
 banner=s.recv(1024)
 print banner
